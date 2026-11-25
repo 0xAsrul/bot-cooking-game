@@ -167,12 +167,15 @@ export class GameState {
     const patienceFrac = Math.max(0, ticket.patience / ticket.maxPatience);
     const tip = Math.round(TUNING.tipMax * patienceFrac);
     const comboBonus = this.streak >= 2 ? 2 : 0;
-    const earned = recipe.price + tip + comboBonus;
+    // A serve at 25% patience or less is a clutch save: +5 coins on top.
+    const clutchBonus = patienceFrac <= 0.25 ? 5 : 0;
+    const earned = recipe.price + tip + comboBonus + clutchBonus;
     this.score += earned;
     this.served++;
     this.streak++;
     this.bestStreak = Math.max(this.bestStreak, this.streak);
     this.floats.push({ x: 480, y: 440, text: `+${earned} served ${recipe.short}`, life: 1.4, color: '#2e7d32' });
+    if (clutchBonus > 0) this.floats.push({ x: 480, y: 410, text: 'CLUTCH +5!', life: 1.4, color: '#d94f30' });
     this.tickets.splice(this.activeTicket, 1);
     if (this.activeTicket >= this.tickets.length) this.activeTicket = Math.max(0, this.tickets.length - 1);
     this.syncPlateToActive();

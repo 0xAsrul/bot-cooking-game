@@ -5,7 +5,7 @@
 //
 // Outside the grader, MAKEFUN_OUTPUT_DIR stands in for /output.
 
-import { cpSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDossier } from './vendor/makefun-game.ts';
@@ -28,5 +28,10 @@ const dossier = buildDossier(outDir, {
   game_max_bytes: 50331648,
 });
 writeFileSync(join(outDir, 'dossier.json'), dossier);
+
+// Handoff summary, computed from what was actually written — never hardcoded.
+const gameFiles = readdirSync(join(outDir, 'game'), { recursive: true, withFileTypes: true }).filter((e) => e.isFile()).length;
+const shotFiles = readdirSync(join(outDir, 'screenshots'), { withFileTypes: true }).filter((e) => e.isFile()).length;
+console.log(`Handoff: ${gameFiles} game files, ${shotFiles} screenshots, dossier.json ${dossier.length} bytes`);
 
 console.log(`Saffron Stall handed in: game/ + screenshots/ + dossier.json in ${outDir}`);

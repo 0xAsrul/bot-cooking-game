@@ -21,6 +21,8 @@ anyone walk out.
   need cooking time at their station — plan the route while they cook.
 - **Serve** with the green SERVE button, **Space**, or by clicking the
   finished plate. **R** clears the plate. **M** mutes the sound.
+- **Clutch serve:** a dish served with its ticket's patience at 25% or less
+  earns a +5 coin clutch bonus on top of the tip and streak bonus.
 - Four original dishes: Saffron Kebab Wrap, Golden Noodle Bowl, Crispy
   Samosa Plate, Ember Chicken Rice. All art is drawn in code and all sound is
   synthesised with WebAudio — no files are fetched, the game plays offline.
