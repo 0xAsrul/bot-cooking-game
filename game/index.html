@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saffron Stall — a lunch-rush cooking game</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>SAFFRON STALL</h1>
+    <p>street food, cooked to order — a 3-minute lunch rush</p>
+  </header>
+
+  <div id="hud">
+    <div class="stat" id="timer"><b>3:00</b><span>TIME LEFT</span></div>
+    <div class="stat" id="score"><b>0</b><span>COINS</span></div>
+    <div class="stat" id="served"><b>0</b><span>SERVED</span></div>
+    <div class="stat" id="level"><b>RUSH 1</b><span>LEVEL</span></div>
+    <span id="combo"></span>
+  </div>
+
+  <section class="board" aria-label="Order board">
+    <h2>ORDER BOARD — CLICK A TICKET TO COOK IT</h2>
+    <div id="tickets"></div>
+  </section>
+
+  <canvas id="game" width="960" height="540" aria-label="The kitchen: counters, stations and the plate"></canvas>
+
+  <div id="platebar">
+    <div id="plate-slots">Pick a ticket on the board to start a dish.</div>
+    <button class="action" id="serve-btn" type="button" disabled>SERVE (SPACE)</button>
+    <button class="action" id="clear-btn" type="button">CLEAR (R)</button>
+  </div>
+
+  <div id="controls">
+    <button class="action" id="start-btn" type="button">START SHIFT</button>
+    <button class="action" id="mute-btn" type="button">SOUND: ON</button>
+    <span id="help"><b>How to play:</b> click a ticket, then its ingredients — chop, cook, plate, serve before patience runs out. Keys: <b>1–4</b> ticket, <b>Space</b> serve, <b>R</b> clear, <b>M</b> mute.</span>
+  </div>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

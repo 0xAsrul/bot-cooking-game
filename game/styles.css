@@ -1,0 +1,85 @@
+/* Saffron Stall — warm street-food styling. No web fonts, no network. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #2b1d12;
+  color: #3e2723;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+#app { max-width: 1000px; margin: 0 auto; padding: 6px 16px 12px; }
+header {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  color: #ffecb3; padding: 2px 2px 6px;
+}
+header h1 { margin: 0; font-size: 26px; letter-spacing: 2px; }
+header p { margin: 0; color: #d7ccc8; font-size: 13px; }
+#hud {
+  display: flex; gap: 8px; align-items: stretch; flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.stat {
+  background: #fff8e1; border-radius: 10px; padding: 6px 12px;
+  min-width: 88px; text-align: center;
+}
+.stat b { display: block; font-size: 21px; line-height: 1.1; }
+.stat span { font-size: 10px; letter-spacing: 1.5px; color: #8d6e63; }
+#timer { font-variant-numeric: tabular-nums; }
+#timer.urgent b { color: #d32f2f; animation: pulse 0.8s infinite; }
+@keyframes pulse { 50% { opacity: 0.45; } }
+#combo { color: #d94f30; font-weight: 700; align-self: center; font-size: 14px; }
+section.board {
+  background: #4e342e; border-radius: 12px; padding: 8px 12px; margin-bottom: 8px;
+}
+section.board h2 {
+  margin: 0 0 6px; color: #ffecb3; font-size: 12px; letter-spacing: 2px;
+}
+#tickets { display: flex; gap: 10px; flex-wrap: wrap; min-height: 68px; }
+.no-tickets { color: #d7ccc8; font-size: 13px; align-self: center; }
+.ticket {
+  background: #fff8e1; border: 3px solid transparent; border-radius: 10px;
+  padding: 8px 10px; min-width: 200px; text-align: left; cursor: pointer;
+  font-family: inherit; color: inherit; position: relative;
+}
+.ticket.active { border-color: #ffca28; background: #ffecb3; }
+.ticket-name { display: block; font-weight: 700; font-size: 13px; padding-right: 62px; }
+.ticket-ing { display: flex; gap: 4px; margin: 5px 0; }
+.ticket-ing i { width: 14px; height: 14px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,0.25); }
+.ticket-price { font-size: 12px; color: #6d4c41; }
+.ticket-active {
+  position: absolute; top: 6px; right: 8px; font-size: 9px; font-weight: 700;
+  letter-spacing: 1px; color: #d94f30;
+}
+.patience { display: block; height: 6px; background: #d7ccc8; border-radius: 3px; margin-top: 6px; overflow: hidden; }
+.patience b { display: block; height: 100%; }
+.patience b.good { background: #43a047; }
+.patience b.warn { background: #fb8c00; }
+.patience b.bad { background: #e53935; }
+#game {
+  display: block; width: min(720px, 100%); height: auto; margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.45); cursor: pointer;
+  background: #f3ddb0;
+}
+#platebar {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  background: #fff8e1; border-radius: 12px; padding: 8px 12px; margin-top: 8px;
+}
+#plate-slots { display: flex; gap: 6px; flex-wrap: wrap; flex: 1; font-size: 13px; color: #8d6e63; }
+.slot {
+  background: #efebe9; border-radius: 20px; padding: 5px 11px;
+  border: 1px dashed #a1887f;
+}
+.slot.done { background: #c8e6c9; border: 1px solid #43a047; color: #2e7d32; font-weight: 600; }
+button.action {
+  font-family: inherit; font-size: 14px; font-weight: 700; letter-spacing: 1px;
+  border: none; border-radius: 10px; padding: 11px 18px; cursor: pointer;
+}
+#serve-btn { background: #bdbdbd; color: #fff; }
+#serve-btn.ready { background: #2e7d32; box-shadow: 0 0 0 3px #a5d6a7; }
+#serve-btn:disabled { cursor: default; }
+#clear-btn { background: #efebe9; color: #6d4c41; }
+#controls { display: flex; gap: 10px; align-items: center; margin-top: 8px; flex-wrap: wrap; }
+#start-btn { background: #d94f30; color: #fff; }
+#mute-btn { background: #4e342e; color: #ffecb3; }
+#help { color: #d7ccc8; font-size: 12px; }
+#help b { color: #ffecb3; }
